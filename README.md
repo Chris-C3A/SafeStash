@@ -56,27 +56,6 @@ SafeStash operates through a series of well-defined steps to ensure secure and e
 ![Dashboard 1](./images/dashboard_1.png)
 ![Dashboard 2](./images/dashboard_2.png)
 
-## Stack Used
-
-- **Frontend**:
-
-  - React
-  - Next.js
-  - Tailwind CSS
-  - Axios
-
-- **Backend**:
-
-  - Flask
-  - Flask-CORS
-
-- **Database**:
-
-  - Supabase
-
-- **Other Tools**:
-  - Git (for version control)
-
 ## Steps to Build and Run the Code
 
 ### Prerequisites
