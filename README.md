@@ -12,8 +12,8 @@ SafeStash is built with a modern, scalable architecture that ensures security, p
 
 1. **Frontend**: A React-based single-page application (SPA) that provides a responsive and intuitive user interface.
 2. **Backend**: A Flask-based RESTful API that handles authentication, session management, and business logic.
-3. **Database**: A PostgreSQL database that stores user data, transaction history, and other relevant information.
-4. **Authentication**: JWT-based authentication for secure and stateless user sessions.
+3. **Database**: A Supabase PostgreSQL database that stores user data, transaction history, and other relevant information.
+4. **Authentication**: Session-based authentication for secure and stateless user sessions.
 5. **Third-Party Integrations**: Integration with external services such as Stellar for blockchain transactions, Momo API for mobile money operations, and currency exchange api.
 
 ## How It Works
@@ -23,7 +23,7 @@ SafeStash operates through a series of well-defined steps to ensure secure and e
 1. **User Registration and Authentication**:
 
    - Users sign up and log in using their email and password.
-   - JWT-based authentication is used to manage user sessions securely.
+   - Session-based authentication is used to manage user sessions securely.
 
 2. **Dashboard Access**:
 
@@ -172,8 +172,3 @@ Supabase is an open-source Firebase alternative that provides a suite of backend
    SUPABASE_URL=https://your-supabase-url.supabase.co
    SUPABASE_KEY=your-key
    ```
-
-## Contact
-
-For any questions or feedback, please contact us at [support@safestash.com](mailto:support@safestash.com).
-[chriselakoury@gmail.com](mailto:chriselakoury@gmail.com)
