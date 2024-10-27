@@ -22,9 +22,9 @@ export default function LandingPage() {
           <Button
             variant="outline"
             className="border-emerald-400 text-emerald-400 hover:bg-emerald-500 hover:text-white bg-gray-800"
-            onClick={() => (window.location.href = "/signup")} // CHANGED: Added onClick handler
+            onClick={() => (window.location.href = "/login")}
           >
-            Sign Up
+            Login
           </Button>
         </nav>
       </header>
@@ -43,6 +43,7 @@ export default function LandingPage() {
           <Button
             size="lg"
             className="bg-emerald-500 hover:bg-emerald-600 text-white"
+            onClick={() => (window.location.href = "/signup")}
           >
             Get Started
           </Button>

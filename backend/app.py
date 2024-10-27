@@ -9,6 +9,7 @@ from services.stellar import get_stellar_balance, stellarApp, generate_key_pair,
 from werkzeug.security import generate_password_hash, check_password_hash
 from services.momo import MomoApi
 from datetime import datetime
+from cryptography.fernet import Fernet
 
 load_dotenv()
 
@@ -16,6 +17,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.register_blueprint(stellarApp, url_prefix='/stellar-app')
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
+fernet_key = Fernet.generate_key()
+fernet = Fernet(fernet_key)
 
 # create an instance of the MomoApi class
 momo_api = MomoApi(
@@ -101,9 +105,12 @@ def register_user():
 
       keyPair = generate_key_pair()
 
+      # ecnrypt the private key
+      encrypted_private_key = fernet.encrypt(keyPair['secret_key'].encode())
+
       supabase.table('wallet').insert({
           "publicKey": keyPair['public_key'],
-          "privateKey": keyPair['secret_key'], #TODO encrypt it
+          "privateKey": encrypted_private_key.decode('utf-8'),
           "user_id": user_id
       }).execute()
 
@@ -274,7 +281,10 @@ def withdraw():
 
   # withdraw from stellar wallet
   # withdraw_to_momo(amount, wallet_response.data[0]['publicKey'], momo_number)
-  transfer_to_stellar(amount, wallet_response.data[0]['publicKey'], wallet_response.data[0]['privateKey'])
+  # decrypt private key
+  private_key = fernet.decrypt(wallet_response.data[0]['privateKey']).decode()
+
+  transfer_to_stellar(amount, wallet_response.data[0]['publicKey'], private_key)
 
   momo_api.create_api_user(user_id)
   api_key = momo_api.create_api_key(user_id)

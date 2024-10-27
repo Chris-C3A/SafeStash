@@ -56,7 +56,8 @@ export default function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="mt-1 block w-full rounded-md bg-gray-800 border-gray-600 text-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                placeholder="username..."
+                className="text-sm mt-1 block w-full rounded-md bg-gray-800 border-gray-600 text-gray-200 focus:border-emerald-500 focus:ring-emerald-500 p-2"
               />
             </div>
             <div>
@@ -72,7 +73,8 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="mt-1 block w-full rounded-md bg-gray-800 border-gray-600 text-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                placeholder="password..."
+                className="mt-1 text-sm block w-full rounded-md bg-gray-800 border-gray-600 text-gray-200 focus:border-emerald-500 focus:ring-emerald-500 p-2"
               />
             </div>
             <Button
@@ -88,7 +90,7 @@ export default function LoginPage() {
           <Button
             variant="outline"
             onClick={() => (window.location.href = "/signup")}
-            className="mt-2 border-emerald-400 text-emerald-400 hover:bg-emerald-500 hover:text-white"
+            className="mt-2 w-[80%] border-emerald-400 text-emerald-400 hover:bg-emerald-500 hover:text-white bg-gray-800"
           >
             <UserPlus className="mr-2 h-5 w-5" />
             Sign Up

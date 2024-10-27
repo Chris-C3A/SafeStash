@@ -94,22 +94,22 @@ export default function DashboardPage(props) {
     } catch (error) {
       // Check if it's a 404 error
       if (error.response && error.response.status === 404) {
-        console.error(
+        console.log(
           "Currency conversion service is unavailable. Please try again later."
         );
       } else if (error.response) {
         // Other response errors (e.g., 500)
-        console.error("Failed to fetch exchange rate. Please try again later.");
+        console.log("Failed to fetch exchange rate. Please try again later.");
         // alert("Failed to fetch exchange rate. Please try again later.");
       } else if (error.request) {
         // Request made but no response received
-        console.error(
+        console.log(
           "No response from the server. Check your internet connection."
         );
         // alert("No response from the server. Check your internet connection.");
       } else {
         // General error
-        console.error("An unexpected error occurred:", error.message);
+        console.log("An unexpected error occurred:", error.message);
         // alert("An unexpected error occurred. Please try again later.");
       }
     }
