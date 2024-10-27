@@ -16,6 +16,46 @@ SafeStash is built with a modern, scalable architecture that ensures security, p
 4. **Authentication**: JWT-based authentication for secure and stateless user sessions.
 5. **Third-Party Integrations**: Integration with external services such as Stellar for blockchain transactions, Momo API for mobile money operations, and currency exchange api.
 
+## How It Works
+
+SafeStash operates through a series of well-defined steps to ensure secure and efficient financial management:
+
+1. **User Registration and Authentication**:
+
+   - Users sign up and log in using their email and password.
+   - JWT-based authentication is used to manage user sessions securely.
+
+2. **Dashboard Access**:
+
+   - Upon successful login, users are redirected to the dashboard.
+   - The dashboard provides an overview of the user's account, including balance, recent transactions, and quick actions.
+
+3. **Deposits and Withdrawals**:
+
+   - Users can make deposits and withdrawals through the dashboard.
+   - For deposits, users enter the amount, currency, and mobile number.
+   - The backend processes the deposit request, interacts with the Momo API for mobile money operations, and updates the user's balance.
+   - For withdrawals, users enter the amount and destination details.
+   - The backend processes the withdrawal request, interacts with the Stellar network for blockchain transactions, and updates the user's balance.
+
+4. **Real-Time Exchange Rates**:
+
+   - SafeStash integrates with a currency exchange API to provide real-time exchange rates.
+   - Users can view the current exchange rates and convert their assets accordingly.
+
+5. **Transaction History**:
+
+   - Users can view their transaction history on the dashboard.
+   - The transaction history includes details such as date, description, amount, and status.
+
+6. **Security Measures**:
+   - All sensitive data is encrypted and securely stored.
+   - HTTP session cookies are used for secure and stateless authentication.
+   - CORS is configured to allow secure cross-origin requests.
+
+![Dashboard 1](./images/dashboard_1.png)
+![Dashboard 2](./images/dashboard_2.png)
+
 ## Stack Used
 
 - **Frontend**:

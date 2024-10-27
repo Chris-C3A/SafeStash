@@ -74,32 +74,44 @@ export default function DashboardPage(props) {
 
   const convert_currency = async (currency) => {
     try {
-      // axios .get()''https://
       console.log(process.env.NEXT_PUBLIC_EXCHANGE_RATE_API_KEY);
 
-      try {
-        const response = await axios.get("https://api.frankfurter.app/latest", {
-          params: {
-            amount: amount,
-            from: currency,
-            to: "USD",
-          },
-        });
+      const response = await axios.get("https://api.frankfurter.app/latest", {
+        params: {
+          amount: amount,
+          from: currency,
+          to: "USD",
+        },
+      });
 
-        const result = response.data.rates["USD"];
+      const result = response.data.rates["USD"];
 
-        if (activeTab === "deposit") {
-          setExchangeRate(result / amount);
-        } else if (activeTab === "withdraw") {
-          setExchangeRate(amount / result);
-        }
-      } catch (error) {
-        console.error("Failed to fetch exchange rate:", error);
+      if (activeTab === "deposit") {
+        setExchangeRate(result / amount);
+      } else if (activeTab === "withdraw") {
+        setExchangeRate(amount / result);
       }
-
-      // console.error("Failed to fetch exchange rate:", error);
     } catch (error) {
-      console.error("Failed to fetch exchange rate:", error);
+      // Check if it's a 404 error
+      if (error.response && error.response.status === 404) {
+        console.error(
+          "Currency conversion service is unavailable. Please try again later."
+        );
+      } else if (error.response) {
+        // Other response errors (e.g., 500)
+        console.error("Failed to fetch exchange rate. Please try again later.");
+        // alert("Failed to fetch exchange rate. Please try again later.");
+      } else if (error.request) {
+        // Request made but no response received
+        console.error(
+          "No response from the server. Check your internet connection."
+        );
+        // alert("No response from the server. Check your internet connection.");
+      } else {
+        // General error
+        console.error("An unexpected error occurred:", error.message);
+        // alert("An unexpected error occurred. Please try again later.");
+      }
     }
   };
 
