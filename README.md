@@ -6,11 +6,13 @@
 
 SafeStash is a secure and user-friendly financial management platform designed to empower users in developing nations. It provides a seamless interface for managing digital assets, making deposits, withdrawals, and tracking transaction history. SafeStash aims to enhance financial stability and accessibility through innovative technology.
 
+[Video Demo](https://www.canva.com/design/DAGUwrXdlKg/igxP-roxC8eFhw3c8frCHA/watch?utm_content=DAGUwrXdlKg&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
 ## Overview of the Design Architecture
 
 SafeStash is built with a modern, scalable architecture that ensures security, performance, and maintainability. The architecture consists of the following key components:
 
-1. **Frontend**: A React-based single-page application (SPA) that provides a responsive and intuitive user interface.
+1. **Frontend**: A NextJS application that provides a responsive and intuitive user interface.
 2. **Backend**: A Flask-based RESTful API that handles authentication, session management, and business logic.
 3. **Database**: A Supabase PostgreSQL database that stores user data, transaction history, and other relevant information.
 4. **Authentication**: Session-based authentication for secure and stateless user sessions.
